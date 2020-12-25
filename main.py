@@ -12,7 +12,7 @@ from pygame_gui.core.utility import create_resource_path
 import os
 
 
-class BoardGame:
+class GameDesigner:
     win_width = 800
     win_height = 600
 
@@ -30,7 +30,7 @@ class BoardGame:
         print("__init__")
         pygame.init()
 
-        pygame.display.set_caption('BoardGame')
+        pygame.display.set_caption('BÖTE Game Game Designer')
         self.window_surface = pygame.display.set_mode((self.win_width, self.win_height))
         self.ui_manager = pygame_gui.UIManager((800, 600), self.theme_dir + '/theme_1.json')
 
@@ -71,5 +71,5 @@ class BoardGame:
 
 
 if __name__ == '__main__':
-    app = BoardGame()
+    app = GameDesigner()
     app.run()
