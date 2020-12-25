@@ -1,9 +1,10 @@
 """
-BÖTE BOARD_GAME EDITOR
+BÖTE GAME DESIGNER
 
 """
 import pygame
 from pygame.locals import *
+
 import pygame_gui
 from pygame_gui.elements import UIButton, UIImage
 from pygame_gui.windows import UIFileDialog
@@ -67,7 +68,6 @@ class BoardGame:
             self.ui_manager.draw_ui(self.window_surface)
 
             pygame.display.update()
-
 
 
 if __name__ == '__main__':
