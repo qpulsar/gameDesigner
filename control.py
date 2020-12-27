@@ -51,6 +51,7 @@ class Control(object):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.done = True
+                self.quit = True
             elif event.type == pygame.KEYDOWN:
                 self.keys = pygame.key.get_pressed()
                 self.toggle_show_fps(event.key)

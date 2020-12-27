@@ -1,13 +1,13 @@
 """ Menü Ekranı"""
 import pygame
 import pygame_gui
-from pygame_gui.elements import UIButton
+from pygame_gui.elements import UIButton, UISelectionList
 
 import config
 from states._State import _State
 
 
-class MainMenu(_State):
+class GameType(_State):
     """This State is updated while our game shows the splash screen."""
 
     def __init__(self):
@@ -18,21 +18,21 @@ class MainMenu(_State):
         self.cover.fill(0)
         self.cover_alpha = 256
         self.alpha_step = 2
-        self.image = config.BACKGROUND['menu_bg']
+        self.image = config.BACKGROUND['gametype_bg']
         self.rect = self.image.get_rect(center=config.SCREEN_RECT.center)
 
         # Her ekranın kendi manager'ı olsun
         self.ui_manager = pygame_gui.UIManager(config.SCREEN_SIZE, config.theme_dir / 'theme_1.json')
 
-        self.design_btn = UIButton(relative_rect=pygame.Rect(-435, -400, 300, 70),
-                                   text='Oyun Tasarla',
-                                   manager=self.ui_manager,
-                                   anchors={'left': 'right',
-                                            'right': 'right',
-                                            'top': 'bottom',
-                                            'bottom': 'bottom'})
-        self.play_btn = UIButton(relative_rect=pygame.Rect(-435, -300, 300, 70),
-                                 text='Oyun Oyna',
+        self.gametype = UISelectionList(relative_rect=pygame.Rect(-800, -600, 300, 200),
+                                        item_list=['Board Game', 'Bulmaca', 'pUZZLE', 'Kelime'],
+                                        manager=self.ui_manager,
+                                        anchors={'left': 'right',
+                                                 'right': 'right',
+                                                 'top': 'bottom',
+                                                 'bottom': 'bottom'})
+        self.start_btn = UIButton(relative_rect=pygame.Rect(-435, -200, 300, 100),
+                                 text='Tasarıma Başla',
                                  manager=self.ui_manager,
                                  anchors={'left': 'right',
                                           'right': 'right',
@@ -47,7 +47,6 @@ class MainMenu(_State):
         self.cover_alpha = max(self.cover_alpha - self.alpha_step, 0)
         surface.blit(self.cover, (0, 0))
 
-
         self.ui_manager.update(time_delta)
         self.ui_manager.draw_ui(config.screen)
 
@@ -57,13 +56,13 @@ class MainMenu(_State):
         if event.type == pygame.QUIT:
             self.is_running = False
 
-
         # Olayları kontrol et
         if event.type == pygame.USEREVENT:
             if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
-                if event.ui_element == self.design_btn:
-                    self.next = "GAMETYPE"
-                    self.done = True
+                if event.ui_element == self.start_btn:
+                    if self.gametype.get_single_selection() == 'Board Game':
+                        self.next = "BOARDGAME1"
+                        self.done = True
 
         # GUI olaylarını işler
         self.ui_manager.process_events(event)

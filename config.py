@@ -34,7 +34,6 @@ os.environ['SDL_VIDEO_CENTERED'] = "TRUE"  # Ekranı ortala
 pygame.display.set_caption(title)
 screen = pygame.display.set_mode(SCREEN_SIZE)
 SCREEN_RECT = screen.get_rect()
-ui_manager = pygame_gui.UIManager(SCREEN_SIZE, theme_dir / 'theme_1.json')
 
 # LOAD RESOURCES
 FONTS = loader.load_all_fonts(font_dir)
