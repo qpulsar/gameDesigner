@@ -32,12 +32,20 @@ class GameType(_State):
                                                  'top': 'bottom',
                                                  'bottom': 'bottom'})
         self.start_btn = UIButton(relative_rect=pygame.Rect(-435, -200, 300, 100),
-                                 text='Tasarıma Başla',
-                                 manager=self.ui_manager,
-                                 anchors={'left': 'right',
-                                          'right': 'right',
-                                          'top': 'bottom',
-                                          'bottom': 'bottom'})
+                                  text='Tasarıma Başla',
+                                  manager=self.ui_manager,
+                                  anchors={'left': 'right',
+                                           'right': 'right',
+                                           'top': 'bottom',
+                                           'bottom': 'bottom'})
+
+        self.silinecek = UIButton(relative_rect=pygame.Rect(-800, -300, 200, 200),
+                                  text='Silmeye Başla',
+                                  manager=self.ui_manager,
+                                  anchors={'left': 'right',
+                                           'right': 'right',
+                                           'top': 'bottom',
+                                           'bottom': 'bottom'})
 
     def update(self, surface, keys, current_time, time_delta):
         """Updates the splash screen."""
@@ -63,6 +71,9 @@ class GameType(_State):
                     if self.gametype.get_single_selection() == 'Board Game':
                         self.next = "BOARDGAME1"
                         self.done = True
+                if event.ui_element == self.silinecek:
+                    self.silinecek.set_text("Silmem")
+                    print("Silinecek")
 
         # GUI olaylarını işler
         self.ui_manager.process_events(event)
