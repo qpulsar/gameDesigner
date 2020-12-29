@@ -6,7 +6,7 @@ import pygame
 
 
 def load_all_files(directory, accept=("*.*",)):
-    """Create a dictionary of paths to music files in given directory
+    """Create a dictionary of paths to musics files in given directory
     if their extensions are in accept."""
     files = {}
     for file in os.listdir(directory):
