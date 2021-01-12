@@ -44,9 +44,8 @@ class MainMenu(_State):
         self.current_time = current_time
         surface.blit(self.image, self.rect)
         self.cover.set_alpha(self.cover_alpha)
-        self.cover_alpha = max(self.cover_alpha - self.alpha_step, 0)
+        self.cover_alpha = max(self.cover_alpha - self. alpha_step, 0)
         surface.blit(self.cover, (0, 0))
-
 
         self.ui_manager.update(time_delta)
         self.ui_manager.draw_ui(config.screen)
@@ -56,7 +55,6 @@ class MainMenu(_State):
         press."""
         if event.type == pygame.QUIT:
             self.is_running = False
-
 
         # Olayları kontrol et
         if event.type == pygame.USEREVENT:
