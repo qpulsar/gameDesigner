@@ -10,7 +10,7 @@ class textWavey:
         self.steps = range(0, self.base.get_width(), 2)
         self.amount = amount
         self.size = list(self.base.get_rect().inflate(0, amount).size)
-        self.size[1] += 130
+        self.size[1] += 40
         self.offset = 0.0
 
     def animate(self):

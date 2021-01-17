@@ -31,13 +31,14 @@ class MainMenu(_State):
                                             'right': 'right',
                                             'top': 'bottom',
                                             'bottom': 'bottom'})
-        self.play_btn = UIButton(relative_rect=pygame.Rect(-435, -300, 300, 70),
+        self.play_btn = UIButton(relative_rect=pygame.Rect(-435, -300, 300, 140),
                                  text='Oyun Oyna',
                                  manager=self.ui_manager,
                                  anchors={'left': 'right',
                                           'right': 'right',
                                           'top': 'bottom',
-                                          'bottom': 'bottom'})
+                                          'bottom': 'bottom'},
+                                 object_id="#main_menu_button")
 
     def update(self, surface, keys, current_time, time_delta):
         """Updates the splash screen."""
