@@ -17,19 +17,23 @@ class Splash(_State):
         self.cover.fill(0)
         self.cover_alpha = 256
         self.alpha_step = 2
-        self.image = config.BACKGROUND['splash_bg']
-        self.rect = self.image.get_rect(center=config.SCREEN_RECT.center)
+        self.image1 = config.BACKGROUND['greenbg']
+        self.image2 = config.BACKGROUND['splash_bg'].convert_alpha()
+        self.rect1 = self.image1.get_rect(center=config.SCREEN_RECT.center)
+        self.rect2 = self.image2.get_rect(center=config.SCREEN_RECT.center)
         self.mesaj = "GAME DESIGNER"
-        #create our fancy text renderer
+
+        # create our fancy text renderer
         bigfont = pygame.font.Font(None, 60)
-        white = 255, 255, 255
+        white = 200, 0, 0
         self.renderer = textWavey(bigfont, self.mesaj, white, 16)
         self.text = self.renderer.animate()
 
     def update(self, surface, keys, current_time, time_delta):
         """Updates the splash screen."""
         self.current_time = current_time
-        surface.blit(self.image, self.rect)
+        surface.blit(self.image1, self.rect1)
+        surface.blit(self.image2, self.rect2)
         self.cover.set_alpha(self.cover_alpha)
         self.cover_alpha = max(self.cover_alpha - self.alpha_step, 0)
         surface.blit(self.cover, (0, 0))
