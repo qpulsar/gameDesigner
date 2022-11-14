@@ -1,4 +1,4 @@
-""" Başlangıç değerleri ve klasör tanımları"""
+""" initial values and source folders"""
 
 import os
 import pygame
@@ -10,8 +10,8 @@ import loader
 
 title = "AltıKod GameDesigner"
 # SCREEN
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 900
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 SCREEN_SIZE = (SCREEN_WIDTH, SCREEN_HEIGHT)
 
 

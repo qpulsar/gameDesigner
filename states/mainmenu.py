@@ -18,7 +18,7 @@ class MainMenu(_State):
         self.cover.fill(0)
         self.cover_alpha = 256
         self.alpha_step = 2
-        self.image = config.BACKGROUND['spacebg']
+        self.image = config.BACKGROUND['colorfullbg']
         self.rect = self.image.get_rect(center=config.SCREEN_RECT.center)
 
         # Her ekranın kendi manager'ı olsun
