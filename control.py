@@ -28,7 +28,7 @@ class Control(object):
 
     def update(self, dt):
         """Checks if a state is done or has called for a game quit.
-        State is flipped if neccessary and State.update is called."""
+        State is flipped if neccessary and State. Update is called."""
         self.current_time = pygame.time.get_ticks()
         if self.state.quit:
             self.done = True
