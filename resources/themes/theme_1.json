@@ -40,7 +40,7 @@
     "images": {
       "normal_image": {
         "package": "resources.images.gui",
-        "resource": "BlueButton.png"
+        "resource": "rb_795.png"
       },
       "hovered_image": {
         "package": "resources.images.gui",

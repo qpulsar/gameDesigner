@@ -43,5 +43,6 @@ def load_all_images(directory, colorkey=(255, 0, 255), accept=(".png", ".jpg", "
             else:
                 img = img.convert()
                 img.set_colorkey(colorkey)
+
             graphics[name] = img
     return graphics

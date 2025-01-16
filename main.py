@@ -11,6 +11,7 @@ from states import mainmenu
 def main():
     """Add states to control here."""
     run_it = Control(config.title)
+
     state_dict = {"SPLASH": splash.Splash(),
                   "MAINMENU":  mainmenu.MainMenu(),
                   "GAMETYPE":  gametype.GameType(),

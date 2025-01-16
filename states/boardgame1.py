@@ -14,7 +14,7 @@ class BoardGame1(_State):
         _State.__init__(self)
         self.next = "SPLASH"
         self.timeout = 5
-        self.cover = pygame.Surface(config.SCREEN_SIZE).convert()
+        self.cover = pygame.Surface(config.SCREEN_SIZE,pygame.SRCALPHA).convert()
         self.cover.fill(0)
         self.cover_alpha = 256
         self.alpha_step = 2
